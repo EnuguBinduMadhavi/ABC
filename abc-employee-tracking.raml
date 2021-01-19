@@ -1,0 +1,43 @@
+#%RAML 1.0
+title: ABC Employee tracking
+
+
+/submit:
+  post:
+    description: posting employee data based on employee ID
+    body:
+      application/json:
+        examples:
+          input: !include /submit.raml
+    responses:  
+      200:
+        body:
+          application/json:
+            example:
+              message: " Employee ID is posted Sucessfully"
+              
+/update:
+  description: updating employee data based on employee ID
+  /{Order _ID}:
+    patch:
+      body:
+        application/json:
+          examples:
+            input: !include /update.raml
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                message: " Employee ID is updated"
+/delete:
+  description: delete the employee ID 
+  /{Order_ID}:
+    delete:
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                message: " Employee ID is deleted"                
+                            
